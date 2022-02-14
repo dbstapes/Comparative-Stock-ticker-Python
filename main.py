@@ -5,13 +5,15 @@
 # 4. create abiltiy to update csv file by where previous history changes
 # 5. remove column
 # 6. make loop find end of values 
+# 7. create method for making new graph not in main
 # n. create line maker for graph 
 #import streamlit as st
 from datetime import date
 
 import yfinance as yf
 
-#from ploty import graph_objs as go 
+
+from plotly import graph_objs as go 
 
 import pandas as pd 
 import mplfinance as mpf 
@@ -68,3 +70,10 @@ while(i < 230):
 
 
 df.to_csv('AAPLtoNDAQ.csv')
+
+#mpf.plot(
+#            df,
+#           type='candle',
+#            title='Apple, March - 2020',
+#            ylabel='Price ($)'
+#        )
