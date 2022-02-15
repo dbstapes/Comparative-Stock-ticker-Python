@@ -1,11 +1,11 @@
 #things to do
 # 1. make database for each new stock i want to make y
 # 2. make a method to make any new combo of stocks y
-# 3. learn csvfiles
+# 3. learn csvfiles y
 # 4. create abiltiy to update csv file by where previous history changes
-# 5. remove column
-# 6. make loop find end of values 
-# 7. create method for making new graph not in main
+# 5. remove column y
+# 6. make loop find end of values y
+# 7. create method for making new graph not in main 
 # n. create line maker for graph 
 #import streamlit as st
 from datetime import date
@@ -22,8 +22,8 @@ i = 0
 stocks = ("AAPL", "NDAQ", "AMD", "TSLA", "FB", "INTC", "LOW", "HD")
 
 #potencial stocks AAPL NDAQ AMD TSLA FB INTC LOW HD
-aple = yf.download( tickers = "AAPL", period = "1y", interval = "1d" )
-nasdaq = yf.download( tickers = "ndaq", period = "1y", interval = "1d" )
+aple = yf.download( tickers = "AMD", period = "1y", interval = "1d" )
+nasdaq = yf.download( tickers = "NDAQ", period = "1y", interval = "1d" )
 
 aple.to_csv('AAPL.csv')
 nasdaq.to_csv('NDAQ.csv')
@@ -33,14 +33,9 @@ df = pd.read_csv('AAPLtoNDAQ.csv')
 cf = pd.read_csv('AAPL.csv')
 vf = pd.read_csv('NDAQ.csv')
 
-#while(i < 255):
- #   j = cf.loc[i, 'Open']
-  #  k = vf.loc[i, 'Open']
-  #  l = j/k
-  #  df.loc[i, 'Open'] = 5.0
-  #  i+=1
 
-while(i < 230):
+
+while(i < len(df)):
     j = cf.loc[i, 'Open']
     k = vf.loc[i, 'Open']
     l = j/k
@@ -69,11 +64,7 @@ while(i < 230):
 
 
 
+df.Date = pd.to_datetime(df.Date)
+df = df.set_index('Date')
 df.to_csv('AAPLtoNDAQ.csv')
-
-#mpf.plot(
-#            df,
-#           type='candle',
-#            title='Apple, March - 2020',
-#            ylabel='Price ($)'
-#        )
+mpf.plot(df, type = 'candle', style = 'charles' )
