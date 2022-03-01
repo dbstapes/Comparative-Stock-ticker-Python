@@ -4,6 +4,7 @@
 # 3. learn csvfiles y
 # 4. create abiltiy to update csv file by where previous history changes
 # 5. remove column y
+# 6. take values from gui and place into graph
 # 6. make loop find end of values y
 # 7. create method for making new graph not in main 
 # n. create line maker for graph 
